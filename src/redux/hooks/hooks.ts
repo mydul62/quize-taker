@@ -1,6 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { AppDispatch } from '../store/store'
-import { RootState } from '@reduxjs/toolkit/query'
+import { AppDispatch, RootState } from '../store/store'
 
 
 // Use throughout your app instead of plain `useDispatch` and `useSelector`
