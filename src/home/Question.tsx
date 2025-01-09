@@ -1,8 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { nextQuestion, previousQuestion, setAnswers } from "@/redux/features/quize/quizeSlize";
+import {  setAnswers } from "@/redux/features/quize/quizeSlize";
 import { useAppSelector } from "@/redux/hooks/hooks";
 import { useDispatch } from "react-redux";
+import QuestionControl from "./QuestionControl";
 
 const Question = () => {
 const {questions,currentQuestionIndex,userAnswers} = useAppSelector((state)=>state.quize);
@@ -25,9 +26,8 @@ const selectedAns = userAnswers[currentQuestionIndex]
       ))}
 
       </CardContent>
-      <CardFooter className="flex justify-between">
-        <Button disabled={currentQuestionIndex === 0}  onClick={() => dispatch(previousQuestion())} variant="outline">Previous</Button>
-        <Button  disabled={currentQuestionIndex === questions.length - 1} onClick={() => dispatch(nextQuestion())} >Next</Button>
+      <CardFooter className="w-full block" >
+        <QuestionControl></QuestionControl>
       </CardFooter>
     </Card>
     </div>

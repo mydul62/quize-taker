@@ -5,14 +5,18 @@ export interface Iquize {
   startQuize: boolean;
   currentQuestionIndex: number;
   userAnswers: string[];
+  correctAnswer:number;
   questions:typeof quizData,
+  quizeComplete:boolean;
 }
 
 const initialState:Iquize = {
   startQuize: false,
   currentQuestionIndex: 0,
+  correctAnswer : 0,
   userAnswers: Array(quizData.length).fill(null),
   questions:quizData,
+  quizeComplete: false
 }
 
 export const QuizeSlice = createSlice({
@@ -34,11 +38,14 @@ export const QuizeSlice = createSlice({
     },
     setAnswers:(state,actions)=>{
       state.userAnswers[actions.payload.currentQuestionIndex]=actions.payload.item;
+    },
+    setQuizeComplete:(state)=>{
+     state.quizeComplete=true;
     }
   },
 })
 
 
-export const { setStartQuize, nextQuestion, previousQuestion ,setAnswers} = QuizeSlice.actions;
+export const { setStartQuize, nextQuestion, previousQuestion ,setAnswers,setQuizeComplete} = QuizeSlice.actions;
 
 export default QuizeSlice.reducer

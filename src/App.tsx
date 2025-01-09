@@ -1,17 +1,24 @@
 import { Button } from "./components/ui/button"
 import Question from "./home/Question"
+import QuestionSummary from "./home/QuestionSummary"
 import StartQuize from "./home/StartQuize"
 import { useAppSelector } from "./redux/hooks/hooks"
 
 
 function App() {
-const {startQuize} = useAppSelector((state)=>state.quize)
+const {startQuize,quizeComplete} = useAppSelector((state)=>state.quize)
   return (
     <>
-     <div >
-     {startQuize?<Question></Question>:<StartQuize></StartQuize>}
-     {/* <Question></Question> */}
-     </div>
+    <div>
+  {quizeComplete ? (
+    <QuestionSummary />
+  ) : startQuize ? (
+    <Question />
+  ) : (
+    <StartQuize />
+  )}
+</div>
+
     </>
   )
 }
