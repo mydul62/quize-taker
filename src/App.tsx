@@ -6,7 +6,7 @@ import { useAppSelector } from "./redux/hooks/hooks"
 
 
 function App() {
-const {startQuize,quizeComplete} = useAppSelector((state)=>state.quize)
+const {startQuize,quizeComplete} = useAppSelector((state)=>state.quize);
   return (
     <>
     <div>
@@ -18,7 +18,6 @@ const {startQuize,quizeComplete} = useAppSelector((state)=>state.quize)
     <StartQuize />
   )}
 </div>
-
     </>
   )
 }

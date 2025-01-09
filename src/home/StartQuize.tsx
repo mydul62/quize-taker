@@ -8,7 +8,7 @@ const StartQuize = () => {
   
   return (
     <div className=" h-screen flex justify-center items-center">
-      <Card className="w-[450px] lg:h-[350px] ">
+      <Card className="w-[450px] lg:h-[350px] border-none shadow-none ">
       
       <CardContent className="space-y-3 justify-center h-full flex items-center  flex-col">
      <Button onClick={()=>dispatch(setStartQuize())} >Start Quize</Button>
